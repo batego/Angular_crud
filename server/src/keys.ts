@@ -3,6 +3,7 @@ export default {
         host: 'localhost',
         user: 'root',
         password: '0520',
-        database: 'ng_games_db'
+        database: 'ng_games_db',
+        connectionLimit: 10
     }
 }
