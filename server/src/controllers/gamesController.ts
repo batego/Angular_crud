@@ -14,8 +14,11 @@ class GamesxController {
     }
 
     public getOne(req: Request, res: Response) {
-        //poll.query('DESCRIBE NG_GAMES_DB.GAME');
-        res.json('Games:  '+ req.params.id );
+        const { id } = req.params;
+        poll.query('SELECT * FROM game where id = ?', [id]).then((items) => {
+            res.json(items);
+        });
+        //res.json('Games:  '+ req.params.id );
     }
 
     public  create(req: Request, res: Response) {

@@ -12,8 +12,11 @@ class GamesxController {
         //res.json(games);
     }
     getOne(req, res) {
-        //poll.query('DESCRIBE NG_GAMES_DB.GAME');
-        res.json('Games:  ' + req.params.id);
+        const { id } = req.params;
+        database_1.default.query('SELECT * FROM game where id = ?', [id]).then((items) => {
+            res.json(items);
+        });
+        //res.json('Games:  '+ req.params.id );
     }
     create(req, res) {
         database_1.default.query('INSERT INTO game set ?', [req.body]).then((rows) => {
