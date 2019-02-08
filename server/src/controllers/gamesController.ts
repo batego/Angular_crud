@@ -29,12 +29,16 @@ class GamesxController {
         res.json({ message: 'Game Saved' });
     }
 
-    public update(req: Request, res: Response) {
-        res.json({ text: 'Updating a Game: ' + req.params.id });
+    public async update(req: Request, res: Response): Promise<void> {        
+        const { id } = req.params;
+        await poll.query('update game set ? where id = ?',[req.body, id]);
+        res.json({message: 'The game was save'});
     }
 
-    public delete(req: Request, res: Response) {
-        res.json({ text: 'Deleting a Game: '+ req.params.id });
+    public async delete(req: Request, res: Response): Promise<void>  {
+        const { id } = req.params;
+        await poll.query('delete from game where id = ?',[id])
+        res.json({ text: 'the Game was deleted: '+ req.params.id });
     }
 }
 

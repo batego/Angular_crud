@@ -27,7 +27,7 @@ class Server {
     }
     start() {
         this.app.listen(this.app.get('port'), () => {
-            console.info(`Server on port`, this.app.get('port'));
+            console.info(`Server on port:`, this.app.get('port'));
         });
     }
 }

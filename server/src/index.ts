@@ -29,11 +29,13 @@ class Server {
 
     start():void {
         this.app.listen(this.app.get('port'), () => {
-            console.info(`Server on port`, this.app.get('port'));
+            console.info(`Server on port:`, this.app.get('port'));
         })
     }
 
  }
+ 
 
+ 
  const server = new Server();
  server.start();
