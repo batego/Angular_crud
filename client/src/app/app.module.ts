@@ -7,7 +7,7 @@ import { NavigationComponent } from './Components/navigation/navigation.componen
 import { GameFormComponent } from './Components/game-form/game-form.component';
 import { GameListComponent } from './Components/game-list/game-list.component';
 import { GamesService } from './Services/games.service';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { HttpClient } from 'selenium-webdriver/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [GamesService],
   bootstrap: [AppComponent]
