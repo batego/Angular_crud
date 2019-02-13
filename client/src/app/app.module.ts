@@ -8,6 +8,7 @@ import { GameFormComponent } from './Components/game-form/game-form.component';
 import { GameListComponent } from './Components/game-list/game-list.component';
 import { GamesService } from './Services/games.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [GamesService],
   bootstrap: [AppComponent]

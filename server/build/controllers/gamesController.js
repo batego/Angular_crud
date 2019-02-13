@@ -22,7 +22,7 @@ class GamesxController {
     getOne(req, res) {
         const { id } = req.params;
         database_1.default.query('SELECT * FROM game where id = ?', [id]).then((items) => {
-            res.json(items);
+            res.json(items[0]);
         });
         //res.json('Games:  '+ req.params.id );
     }

@@ -16,7 +16,7 @@ class GamesxController {
     public getOne(req: Request, res: Response) {
         const { id } = req.params;
         poll.query('SELECT * FROM game where id = ?', [id]).then((items) => {
-            res.json(items);
+            res.json(items[0]);
         });
         //res.json('Games:  '+ req.params.id );
     }
