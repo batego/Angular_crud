@@ -8,33 +8,33 @@ class Server {
 
     public app: Application;
 
-    constructor(){
-        this.app =  express();
+    constructor() {
+        this.app = express();
         this.config();
         this.routes();
     }
 
     config(): void {
         this.app.set('port', process.env.PORT || 3000);
-        this.app.use(morgan('dev'));
-        this.app.use(cors());
-        this.app.use(express.json());
-        this.app.use(express.urlencoded({extended: false}));
+        this.app.use(morgan('dev'));//con morgan puedo ver en el servidor que peticiones se hacen POST, GET, PUT DELETE
+        this.app.use(cors());//con esta instancia angular puee hacer las teticiones a nuestro SERVER
+        this.app.use(express.json());//recibir datos en formato JSON de aplicaciones clientes
+        this.app.use(express.urlencoded({ extended: false })); //enviar datos desde un formulario
     }
 
-    routes(): void{
-        this.app.use(indexRoutes);
-        this.app.use('/api/games',gamesRoutes);
+    routes(): void {
+        this.app.use('/', indexRoutes);
+        this.app.use('/api/games', gamesRoutes);
     }
 
-    start():void {
+    start(): void {
         this.app.listen(this.app.get('port'), () => {
-            console.info(`Server on port:`, this.app.get('port'));
+            console.info(`Server Dereck Inc running on port :`, this.app.get('port'));
         })
     }
 
- }
- 
- 
- const server = new Server();
- server.start();
+}
+
+
+const server = new Server();
+server.start();

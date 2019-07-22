@@ -5,11 +5,11 @@ class GamesRouter {
 
     public router = Router();
 
-    constructor(){
+    constructor() {
         this.config();
     }
 
-    config():void {
+    config(): void {
         this.router.get('/', gamesController.list);
         this.router.get('/:id', gamesController.getOne);
         this.router.post('/', gamesController.create);

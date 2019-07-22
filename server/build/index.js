@@ -16,18 +16,18 @@ class Server {
     }
     config() {
         this.app.set('port', process.env.PORT || 3000);
-        this.app.use(morgan_1.default('dev'));
-        this.app.use(cors_1.default());
-        this.app.use(express_1.default.json());
-        this.app.use(express_1.default.urlencoded({ extended: false }));
+        this.app.use(morgan_1.default('dev')); //con morgan puedo ver en el servidor que peticiones se hacen POST, GET, PUT DELETE
+        this.app.use(cors_1.default()); //con esta instancia angular puee hacer las teticiones a nuestro SERVER
+        this.app.use(express_1.default.json()); //recibir datos en formato JSON de aplicaciones clientes
+        this.app.use(express_1.default.urlencoded({ extended: false })); //enviar datos desde un formulario
     }
     routes() {
-        this.app.use(indexRoutes_1.default);
+        this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/games', gamesRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {
-            console.info(`Server on port:`, this.app.get('port'));
+            console.info(`Server Dereck Inc running on port :`, this.app.get('port'));
         });
     }
 }
